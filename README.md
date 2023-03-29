@@ -18,4 +18,4 @@ If you find our code or paper useful, please cite:
 }
 ```
 
-Please contact `DIM_SLAM [at] hengli [dot] me || lh.heng.li [at] connect [dot] ust [dot] hk` for help.
+Please contact `sekikawa.yusuke [at] core [dot] d-itlab [dot] co [dot] jp` for help.
