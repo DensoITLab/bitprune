@@ -17,5 +17,5 @@ If you find our code or paper useful, please cite:
   url={https://openreview.net/forum?id=YUDiZcZTI8}
 }
 ```
-
-Please contact `sekikawa.yusuke [at] core [dot] d-itlab [dot] co [dot] jp` for help.
+<!-- 
+Please contact `sekikawa.yusuke [at] core [dot] d-itlab [dot] co [dot] jp` for help. -->
