@@ -1,0 +1,48 @@
+misc:
+  suffix: ''
+  log_dir: 'log/'
+  log_name: 'log'
+  seed: 0
+
+dataset:
+  name: 'IMNET'
+  path: "/home/data/ILSVRC/Data/CLS-LOC"
+  input_size: 224
+  color_jitter: 0.4,
+  aa: 'rand-m9-mstd0.5-inc1'
+  train_interpolation: 'bicubic'
+  reprob: 0.25
+  remode: 'pixel'
+  recount: 1
+  imagenet_default_mean_and_std: True
+  pin_mem: True
+  crop_pct: 0.0
+  
+model:
+  name: 'convnext_base'
+  wgt_bit: 8
+  act_bit: 8
+  pretrain_path: ''
+  pretrained: 1 # 1: from ImageNet 2: from Task
+
+optim:
+  batch_size: 256
+  scheduler: 'CosineDecay' # 'ExponentialLR', 'OneCycleLR', 'CosineDecay'
+  optimizer: 'AdamW' # 'SGD', 'AdamW'
+  epochs: 100
+  lr_core: 5e-4
+  lr_mask: 5e-4
+  gamma: 0.98
+  momentum: 0.9
+  weight_decay: 1e-7 # 0
+  enable_decay: 1 # 0
+  loss_type: 'act_tgt' # 'fp32', 'wgt_naive', 'act_naive', 'wgt_bilinear', 'act_bilinear', 'wgt_tgt', 'act_tgt', 'wgt_prox', 'wgt_lprox'
+  spr_w: 5
+  lamda_ini: 1.0
+  wgt_p_norm: 0.5
+  smoothing: 0.1
+  drop_path: 0.8
+
+hardware:
+  num_cpu_workers: 32
+  gpu_device: [0,1,2,3] 

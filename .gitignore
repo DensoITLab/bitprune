@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.installed.cfg
+*.egg
+
+.*
+!/.gitignore
+
+*/__pycache__/*
+
+log/
+data/
+
+# Ignore private files for debugging
+plot_stats.ipynb
+plot_util.py
+misc/

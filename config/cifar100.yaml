@@ -1,0 +1,49 @@
+misc:
+  suffix: ''
+  log_dir: 'log/'
+  log_name: 'log_re'
+  seed: 0
+
+dataset:
+  name: 'CIFAR100' # cifar100, CIFAR100
+  path: "data" 
+  input_size: 32
+  color_jitter: 0.4,
+  aa: 'rand-m9-mstd0.5-inc1'
+  train_interpolation: 'bicubic'
+  reprob: 0.25
+  remode: 'pixel'
+  recount: 1
+  imagenet_default_mean_and_std: True
+  pin_mem: True
+  crop_pct: 0.0
+  
+model:
+  name: 'resnet18'
+  wgt_bit: 8
+  act_bit: 8
+  pretrain_path: ''
+  pretrained: 0 # 1: from ImageNet 2: from Task
+  width: 1
+
+optim:
+  batch_size: 512
+  scheduler: 'OneCycleLR' # 'ExponentialLR', 'OneCycleLR'
+  optimizer: 'AdamW' # 'SGD', 'AdamW'
+  epochs: 200
+  lr_core: 0.05
+  lr_mask: 0.01
+  gamma: 0.98
+  momentum: 0.9
+  weight_decay: 0.01 # 0
+  enable_decay: 1 # 0
+  loss_type: 'act_bilinear' # 'wgt_naive', 'act_naive', 'wgt_bilinear', 'act_bilinear', 'wgt_tgt', 'act_tgt', 'wgt_prox', 'wgt_lprox'
+  spr_w: 5 
+  lamda_ini: 1.0
+  wgt_p_norm: 0.5
+  smoothing: 0.0
+  drop_path: 0.0
+
+hardware:
+  num_cpu_workers: 16
+  gpu_device: [0]
